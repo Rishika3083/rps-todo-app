@@ -1,0 +1,229 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #a1c4fd, #c2e9fb);
+  color: #333;
+  text-align: center;
+  padding: 20px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  animation: fadeIn 1.5s ease-out;
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+body.dark-mode {
+  background: linear-gradient(135deg, #2c3e50, #000000);
+  color: #fff;
+}
+
+#game-container {
+  position: relative;
+  z-index: 1;
+  max-width: 750px;
+  width: 100%;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  padding: 30px;
+  transition: background 0.3s ease;
+}
+
+body.dark-mode #game-container {
+  background:#121011;
+}
+
+
+h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 4px rgba(118, 143, 232, 0.2);
+}
+
+.controls {
+  margin-bottom: 20px;
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+.controls button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 10px;
+  border: none;
+  background-color: #4eafff;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.controls button:hover {
+  background-color: #1c86d1;
+}
+
+/* 🎯 Difficulty dropdown style */
+.controls select {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 10px;
+  border: none;
+  background-color: #1c86d1;
+  color: white;
+  cursor: pointer;
+}
+
+.countdown {
+  font-size: 36px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  animation: pulse 1s infinite;
+}
+
+.result {
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.scoreboard {
+  margin-top: 15px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.gesture-info {
+  font-size: 18px;
+  margin-top: 15px;
+  animation: fadeIn 1s ease-out;
+}
+
+.rps-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.gesture-button {
+  font-size: 40px;
+  margin: 10px;
+  padding: 25px;
+  border-radius: 50%;
+  border: none;
+  background-color: #f1f1f1;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.gesture-button:hover {
+  background-color: #dfe9f3;
+  transform: scale(1.2);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.gesture-display {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+  width: 100%;
+  max-width: 600px;
+}
+
+.gesture-player, .gesture-computer {
+  font-size: 80px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #f1f1f1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gesture-player {
+  background-color: #e9f7ff;
+}
+
+.gesture-computer {
+  background-color: #f9e2e2;
+}
+
+.gesture-player.active, .gesture-computer.active {
+  transform: scale(1.2);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+#game-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(125, 128, 228, 0.5);
+  z-index: -1;
+}
+
+.dark-mode-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 10px;
+  border: none;
+  background-color: #4eafff;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.dark-mode-toggle:hover {
+  background-color: #1c86d1;
+}
+/* 📊 Stats Panel */
+#stats-panel {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  font-family: 'Poppins', sans-serif;
+  z-index: 999;
+}
+
+#stats-panel h2 {
+  margin-bottom: 10px;
+  font-size: 1.2em;
+}
+
+#stats-panel p {
+  margin: 5px 0;
+  font-size: 1em;
+}

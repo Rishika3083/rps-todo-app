@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rishika's Rock Paper Scissors Game</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 📊 Stats Panel on Left -->
+    <div id="stats-panel">
+        <h2>📊 Stats</h2>
+        <p>Total Games: <span id="total-games">0</span></p>
+        <p>Wins: <span id="total-wins">0</span></p>
+        <p>Losses: <span id="total-losses">0</span></p>
+        <p>Ties: <span id="total-ties">0</span></p>
+        <p>Rounds Left: <span id="rounds-left">5</span></p>
+    </div>
+
+    <!-- Main Game Container -->
+    <div id="game-container">
+        <h1>🎮 Rock Paper Scissors Game</h1>
+
+        <!-- Controls -->
+        <div class="controls">
+            <label for="difficulty">🎯 Difficulty:</label>
+            <select id="difficulty">
+                <option value="easy">😊Easy</option>
+                <option value="medium" selected>😐Medium</option>
+                <option value="hard">😈Hard</option>
+            </select>
+            <button id="reset-btn">🔄 Reset</button>
+            <button id="clear-stats-btn">❌ Clear Stats</button>
+        </div>
+
+        <div class="game-section">
+            <div class="scoreboard">
+                <span>👤 <span id="user-score">0</span> vs <span id="comp-score">0</span> 💻</span>
+            </div>
+            <div id="rps-countdown" class="countdown">Ready?</div>
+            <div id="rps-result" class="result"></div>
+            <div id="gesture-info" class="gesture-info">Make a choice...</div>
+
+            <div class="rps-buttons">
+                <button id="rock-button" class="gesture-button">✊</button>
+                <button id="paper-button" class="gesture-button">✋</button>
+                <button id="scissors-button" class="gesture-button">✌️</button>
+                <button id="lizard-button" class="gesture-button">🦎</button>
+                <button id="spock-button" class="gesture-button">🖖</button>
+            </div>
+
+            <div class="gesture-display">
+                <div id="player-gesture" class="gesture-player"></div>
+                <div id="computer-gesture" class="gesture-computer"></div>
+            </div>
+        </div>
+
+        <div id="game-background"></div>
+    </div>
+
+    <button id="toggle-dark" class="dark-mode-toggle">🌙 Dark Mode</button>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

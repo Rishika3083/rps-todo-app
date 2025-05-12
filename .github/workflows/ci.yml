@@ -1,0 +1,35 @@
+name: CI Workflow
+
+on:
+  push:
+    branches:
+      - main    # Trigger the workflow on pushes to the main branch
+  pull_request:
+    branches:
+      - main    # Trigger the workflow when creating a pull request to the main branch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest  # The environment where the workflow will run (you can choose other OS like macOS or Windows)
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2   # This checks out your repository's code
+
+    - name: Set up Node.js (If you’re using Node.js)
+      uses: actions/setup-node@v2
+      with:
+        node-version: '16'   # You can specify the version of Node.js you need (adjust based on your stack)
+
+    - name: Install dependencies
+      run: npm install         # This installs your project's dependencies (adjust for your language/framework)
+
+    - name: Run Tests
+      run: npm test            # This runs your tests (change based on your testing framework)
+
+    - name: Build Project
+      run: npm run build       # This builds your project (adjust this based on your project setup)
+
+    - name: Deploy (Optional)
+      run: |
+        echo "Deploying project..."  # Add deployment steps here (e.g., to Netlify, Vercel, or a custom server)

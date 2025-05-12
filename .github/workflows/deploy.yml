@@ -31,4 +31,4 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3  # Use the action to deploy to GitHub Pages
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./  # Specify the directory to deploy (adjust if needed, like 'dist' or 'build')
+          publish_dir: ./build  # Change to 'build' or 'dist' based on your build output

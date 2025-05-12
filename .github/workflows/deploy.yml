@@ -3,30 +3,32 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - master   # Trigger the workflow on pushes to the master branch
+      - master  # Trigger the workflow on pushes to the master branch
+
+permissions:
+  contents: write  # Grant write permission to the contents
 
 jobs:
   deploy:
     runs-on: ubuntu-latest  # The environment where the workflow will run
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2   # This checks out your repository's code
+      - name: Checkout code
+        uses: actions/checkout@v3  # Checkout the repository's code
 
-    - name: Set up Node.js (If using Node.js)
-      uses: actions/setup-node@v2
-      with:
-        node-version: '16'   # Adjust for your Node.js version (if needed)
+      - name: Set up Node.js (If using Node.js)
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'  # Adjust for your Node.js version (if needed)
 
-    - name: Install dependencies
-      run: npm install         # This installs your project dependencies (adjust for your setup)
+      - name: Install dependencies
+        run: npm install  # Install your project dependencies
 
-    - name: Build Project
-      run: npm run build       # This builds your project (adjust as needed for your setup)
+      - name: Build Project
+        run: npm run build  # Build your project
 
-    - name: Deploy to GitHub Pages
-      uses: JamesIves/github-pages-deploy-action@4.1.0
-      with:
-        branch: gh-pages          # The branch that will hold the generated files
-        folder: build             # The folder containing the generated files (e.g., "dist" or "build")
-        token: ${{ secrets.GITHUB_TOKEN }}  # GitHub token for authentication
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3  # Use the action to deploy to GitHub Pages
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./  # Specify the directory to deploy (adjust if needed, like 'dist' or 'build')

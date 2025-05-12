@@ -3,20 +3,30 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - master  
-
-permissions:
-  contents: write
+      - master   # Trigger the workflow on pushes to the master branch
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+    runs-on: ubuntu-latest  # The environment where the workflow will run
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./  # Change this if your site builds to another directory like 'dist' or 'build'
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2   # This checks out your repository's code
+
+    - name: Set up Node.js (If using Node.js)
+      uses: actions/setup-node@v2
+      with:
+        node-version: '16'   # Adjust for your Node.js version (if needed)
+
+    - name: Install dependencies
+      run: npm install         # This installs your project dependencies (adjust for your setup)
+
+    - name: Build Project
+      run: npm run build       # This builds your project (adjust as needed for your setup)
+
+    - name: Deploy to GitHub Pages
+      uses: JamesIves/github-pages-deploy-action@4.1.0
+      with:
+        branch: gh-pages          # The branch that will hold the generated files
+        folder: build             # The folder containing the generated files (e.g., "dist" or "build")
+        token: ${{ secrets.GITHUB_TOKEN }}  # GitHub token for authentication

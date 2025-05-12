@@ -50,8 +50,9 @@ Then visit `http://localhost:8080` in your browser.
  📜 License
 
 This project is licensed under the [MIT License](LICENSE), making it free to use, modify, and distribute.
+
 🌐 Live Preview
-https://rishika3083.github.io/rps-todo-app/
+🚀https://rishika3083.github.io/rps-todo-app/
 
 
 

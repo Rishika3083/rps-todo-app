@@ -41,6 +41,7 @@ body.dark-mode #game-container {
   background:#121011;
 }
 
+
 h1 {
   font-size: 36px;
   margin-bottom: 20px;
@@ -53,7 +54,6 @@ h1 {
   display: flex;
   gap: 15px;
   justify-content: center;
-  flex-wrap: wrap;
 }
 
 .controls button {
@@ -71,6 +71,7 @@ h1 {
   background-color: #1c86d1;
 }
 
+/* 🎯 Difficulty dropdown style */
 .controls select {
   padding: 10px;
   font-size: 16px;
@@ -204,7 +205,7 @@ h1 {
 .dark-mode-toggle:hover {
   background-color: #1c86d1;
 }
-
+/* 📊 Stats Panel */
 #stats-panel {
   position: absolute;
   top: 20px;
@@ -225,85 +226,4 @@ h1 {
 #stats-panel p {
   margin: 5px 0;
   font-size: 1em;
-}
-
-/* Mobile responsiveness */
-@media (max-width: 768px) {
-  body {
-    padding: 10px;
-  }
-
-  #game-container {
-    padding: 20px;
-  }
-
-  .controls {
-    flex-direction: column;
-  }
-
-  .controls select,
-  .controls button {
-    width: 100%;
-    margin-bottom: 10px;
-  }
-
-  .rps-buttons {
-    gap: 10px;
-  }
-
-  .gesture-button {
-    font-size: 32px;
-    padding: 20px;
-  }
-
-  .gesture-display {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .gesture-player, .gesture-computer {
-    font-size: 70px;
-    width: 80px;
-    height: 80px;
-  }
-
-  .gesture-info {
-    font-size: 16px;
-  }
-
-  #stats-panel {
-    position: static;
-    margin-top: 20px;
-    width: 100%;
-    padding: 10px;
-    box-shadow: none;
-  }
-}
-
-@media (max-width: 480px) {
-  h1 {
-    font-size: 28px;
-  }
-
-  .controls button,
-  .controls select {
-    padding: 12px;
-  }
-
-  .gesture-button {
-    font-size: 30px;
-    padding: 18px;
-  }
-
-  .countdown {
-    font-size: 30px;
-  }
-
-  .result {
-    font-size: 18px;
-  }
-
-  .gesture-info {
-    font-size: 14px;
-  }
 }

@@ -1,0 +1,11 @@
+{
+  "name": "rps-todo-app",
+  "version": "1.0.0",
+  "description": " Rock Paper Scissors + To-Do web app",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Rishika",
+  "license": "MIT "
+}
